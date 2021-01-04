@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRAAG</title>
+
+  <meta name="title" content="GRAAG">
+  <meta property="og:title" content="GRAAG">
+  <meta property="twitter:title" content="GRAAG">
+
+  <meta name="description" content="👁👁 makers, doers, creatives, friends. Based in Sheffield, England.">
+  <meta property="og:description" content="👁👁 makers, doers, creatives, friends. Based in Sheffield, England.">
+  <meta property="twitter:description" content="👁👁 makers, doers, creatives, friends. Based in Sheffield, England.">
+
+  <link rel="canonical" href="https://graag.studio">
+  <meta property="og:url" content="https://graag.studio">
+  <meta property="twitter:url" content="https://graag.studio">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:image" content="https://graag.studio/social.png">
+  <meta property="twitter:image" content="https://graag.studio/social.png">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GRAAG logo" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1b2327">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <script>
+    /*
+    👋
+    this website was made by sleepingkiwi
+    https://github.com/sleepingkiwi/GRAAG
+    */
+
+    // js styles gated behind arrow function and closest support, others get no-js version
+    const init = () => {
+      if (Element.prototype.closest) {
+        document.documentElement.className = document.documentElement.className.replace(/(^|\s)no-js(\s|$)/, ' js ');
+      }
+    };
+    init();
+  </script>
+
+  <!--
+    Loading google fonts using optimisations from:
+    https://csswizardry.com/2020/05/the-fastest-google-fonts/
+  -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" media="print" onload="this.media='all'" />
+
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" />
+  </noscript>
+
+  <style>
+    /*
+    normalise and reset
+    */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body,
+    h1,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    svg {
+      overflow: hidden;
+    }
+
+    html {
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%;
+    }
+
+
+    /*
+    style
+    */
+    html {
+      font-size: 1rem;
+      /* increase size with screen width */
+      /* font-size: calc(0.5rem + 0.3vw); */
+    }
+
+    body {
+      font-family: 'Anonymous Pro', monospace;
+      color: #1b2327;
+      transition: color 1200ms ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    main,
+    header,
+    body > div {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      background-color: transparent;
+      color: currentColor;
+      transition: opacity 600ms ease;
+      outline: 0;
+    }
+
+    .form button:focus-visible {
+      outline: dashed 0.2rem currentColor;
+      outline-offset: 0.2rem;
+    }
+
+    a:focus {
+      opacity: 0.5;
+      outline: 0;
+    }
+
+    svg path {
+      fill: currentColor;
+    }
+
+
+    header a,
+    .icon-link a {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    header a {
+      width: 182px;
+      width: 11rem;
+      max-width: 100%;
+    }
+
+    .icon-link a {
+      width: 32px;
+      width: 2rem;
+      max-width: 25%;
+    }
+
+    .logo-padder {
+      padding-bottom: 21.703296703296704%;
+    }
+
+    .icon-link__padder {
+      padding-bottom: 100%;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    input,
+    button,
+    textarea {
+      font: inherit;
+      line-height: 1.5;
+      font-weight: normal;
+    }
+
+    input:invalid,
+    button:invalid,
+    textarea:invalid {
+        box-shadow: none;
+      }
+
+    /* no outlines... */
+    input:focus,
+    textarea:focus {
+      outline: 0;
+    }
+
+    textarea {
+      overflow: auto;
+    }
+
+    ::-webkit-validation-bubble-message {
+      font-family: 'Anonymous Pro', monospace;
+    }
+
+    .form {
+      text-align: center;
+      width: 364px;
+      width: 22rem;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form input,
+    .form textarea {
+      width: 100%;
+      min-width: 0;
+      color: currentColor;
+      appearance: none;
+      text-align:center;
+    }
+
+    .form textarea {
+      resize: vertical;
+      min-height: 7rem;
+    }
+
+    .form__input-group--integrated {
+      border-bottom: 2px solid;
+    }
+
+    .form__input-group--integrated input,
+    .form__input-group--integrated label,
+    .form__input-group--integrated textarea {
+      display: block;
+      padding: 6px 12px;
+      background: transparent;
+      margin: 0 auto; /* safari has 2px margins under inputs? */
+      border: 0;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .form__input-group--integrated input,
+    .form__input-group--integrated textarea {
+      color: #1b2327;
+    }
+
+    .form button {
+      cursor: pointer;
+      color: currentColor;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      padding: 12px;
+      transition: opacity 600ms ease;
+    }
+
+    .js--validate-me--invalid button {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    .u-flows > * + * {
+      margin-top: 18px;
+    }
+
+
+    /* https://allyjs.io/tutorials/hiding-elements.html#2017-edition-of-visuallyhidden */
+    .visuallyhidden:not(:focus):not(:active),
+    .js .js--collapsed {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+
+
+    /*
+    colours
+    */
+    .f1 { color: #1b2327; } .f2 { color: #00b37e; } .f3 { color: #ffdb00; } .f4 { color: #ff7433; } .f5 { color: #db477e; } .f6 { color: #c255bb; } .f7 { color: #7559b0; } .f8 { color: #3546a6; } .f9 { color: #0082c6; } .f10 { color: #00a78a; } .f11 { color: #615b56; } .f12 { color: #ff9c46; } .f13 { color: #ffbf57; } .f14 { color: #009dd7; } .f15 { color: #ea4d6c; } .f16 { color: #006e8d; } .f17 { color: #008db8; } .f18 { color: #395465; } .f19 { color: #5fa8e3; } .f20 { color: #444b78; } .f21 { color: #3546a6; } .f22 { color: #a2aee4; } .f23 { color: #7559b0; } .f24 { color: #977acf; } .f25 { color: #85588d; } .f26 { color: #e094db; } .f27 { color: #995281; } .f28 { color: #ac506e; } .f29 { color: #db466a; } .f30 { color: #d2505d; } .f31 { color: #00bbb2; } .f32 { color: #006777; } .f33 { color: #00a997; } .f34 { color: #225c68; } .f35 { color: #00b4e5; } .f36 { color: #009084; } .f37 { color: #00b37e; } .f38 { color: #8dd169; } .f39 { color: #4a8f4c; } .f40 { color: #436257; } .f41 { color: #b5d740; } .f42 { color: #87893a; } .f43 { color: #ede200; } .f44 { color: #d7e100; } .f45 { color: #e55a51; } .f46 { color: #4e6762; } .f47 { color: #0077ac; } .f48 { color: #a75077; } .f49 { color: #e5a3c9; } .f50 { color: #9861be; } .f51 { color: #25c97f; } .f52 { color: #0075be; } .f53 { color: #77afe6; } .f54 { color: #ffbd17; } .f55 { color: #ffe700; } .f56 { color: #7e654c; } .f57 { color: #ffae3d; } .f58 { color: #ff6771; } .f59 { color: #f95561; } .f60 { color: #d05763; } .f61 { color: #ef2f09; } .f62 { color: #00bb6f; } .f63 { color: #69a9c4; } .f64 { color: #3a4c86; } .f65 { color: #d656b1; } .f66 { color: #775455; } .f67 { color: #ffe79e; } .f68 { color: #ff774e; } .f69 { color: #dd4486; } .f70 { color: #db466a; } .f71 { color: #f24f60; } .f72 { color: #cb4a63; } .f73 { color: #ea4d6c; } .f74 { color: #ec6446; } .f75 { color: #8c3b2a; } .f76 { color: #f28d4f; } .f77 { color: #663b21; } .f78 { color: #674a24; } .f79 { color: #fff15f; } .f80 { color: #5d6a34; } .f81 { color: #b7d167; } .f82 { color: #4d6e3d; } .f83 { color: #86c06a; } .f84 { color: #266941; } .f85 { color: #3faf6c; } .f86 { color: #166967; } .f87 { color: #25b4b1; } .f88 { color: #00546c; } .f89 { color: #488ccb; } .f90 { color: #284d6f; } .f91 { color: #488ccb; } .f92 { color: #35446c; } .f93 { color: #5972b6; } .f94 { color: #43396c; } .f95 { color: #6455a0; } .f96 { color: #5b3a68; } .f97 { color: #8d5ba1; } .f98 { color: #693961; } .f99 { color: #af60a2; } .f100 { color: #6d304b; } .f101 { color: #ec69a4; }
+  </style>
+</head>
+<body
+  class="f1"
+>
+  <div class="u-flows">
+    <!--
+    GRAAG logo
+    -->
+    <header>
+      <h1>
+        <a href="/">
+          <div class="logo-padder"></div>
+          <span class="visuallyhidden">GRAAG</span>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="364"
+            height="79"
+            viewBox="0 0 364 79"
+            role="img"
+            aria-hidden="true"
+          >
+            <path fill="#1b2327" d="M72.2 39.6v3.1C72.2 61 60 75.2 40.4 75.2 19.8 75.2 5 59.6 5 39.7S19.8 4.1 40.3 4.1c9.3 0 16.9 3.3 23.3 9.3.7.7.7 1.2.2 1.7l-3.1 3.5c-.5.6-1.1.6-1.7.1-5.3-4.7-11.6-7.4-18.7-7.4-15.9 0-27.8 12.1-27.8 28.4C12.5 56 24.4 68 40.4 68 55 68 65 58.3 65 44.8H41.4c-.9 0-1.4-.5-1.4-1.4v-4c0-.9.5-1.3 1.4-1.3h29.4c.8 0 1.4.6 1.4 1.5zM133.3 73.9h-4.9c-.8 0-1.4-.3-1.8-1l-16.7-25.1h-11v24.7c0 .9-.5 1.4-1.4 1.4h-4.6c-.9 0-1.4-.5-1.4-1.4V6.3c0-.9.5-1.4 1.4-1.4h18.8c14.9 0 22.7 9 22.7 21.5 0 10.6-5.7 18.8-16.8 20.9l16.8 24.8c.5 1.1 0 1.8-1.1 1.8zM98.9 41.2h12.2c9 0 16.1-3.9 16.1-14.8s-7.1-14.9-16.1-14.9H98.9v29.7zM211.1 6.1V11c0 .8-.3 1.3-1.2 1.6L195.6 20l1.4 39.9 14.3 6.2c.9.3 1.2.8 1.2 1.7v4.8c0 1.1-.7 1.5-1.7 1.1l-66.1-29.8c-.8-.3-1.2-1-1.2-1.8v-5.4c0-.8.4-1.5 1.2-1.8L209.4 5c1.1-.3 1.7.1 1.7 1.1zm-22 16.3l-36.7 17 38.1 18.2-1.4-35.2zM283.7 6.1V11c0 .8-.3 1.3-1.2 1.6L268.2 20l1.4 39.9 14.3 6.2c.9.3 1.2.8 1.2 1.7v4.8c0 1.1-.7 1.5-1.7 1.1l-66.1-29.8c-.8-.3-1.2-1-1.2-1.8v-5.4c0-.8.4-1.5 1.2-1.8L282 5c1-.3 1.7.1 1.7 1.1zm-22.1 16.3l-36.7 17L263 57.6l-1.4-35.2zM358.3 39.6v3.1c0 18.3-12.2 32.5-31.8 32.5-20.6 0-35.4-15.6-35.4-35.5s14.8-35.6 35.3-35.6c9.3 0 16.9 3.3 23.3 9.3.7.7.7 1.2.2 1.7l-3.1 3.5c-.5.6-1.1.6-1.7.1-5.3-4.7-11.6-7.4-18.7-7.4-15.9 0-27.8 12.1-27.8 28.4 0 16.3 11.9 28.3 27.9 28.3 14.6 0 24.6-9.7 24.6-23.2h-23.6c-.9 0-1.4-.5-1.4-1.4v-4c0-.9.5-1.3 1.4-1.3h29.4c.8 0 1.4.6 1.4 1.5z"/>
+            <image src="./icons/graag-logo-crop.png" xlink:href="" />
+          </svg>
+        </a>
+      </h1>
+    </header>
+
+
+    <main class="u-flows">
+      <!--
+      Contact link
+      -->
+      <div class="icon-link">
+        <a
+          href="#contact-form"
+          data-target="contact-form"
+          class="js--collapse-anchor"
+        >
+          <div class="icon-link__padder"></div>
+          <span class="visuallyhidden">Contact</span>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="64"
+            height="64"
+            viewBox="0 0 512 512"
+            role="img"
+            aria-hidden="true"
+          >
+            <path fill="#1b2327" d="M452 68H60C26.916 68 0 94.916 0 128v256c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V128c0-33.084-26.916-60-60-60zm20 316c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V128c0-11.028 8.972-20 20-20h392c11.028 0 20 8.972 20 20v256z"/>
+            <path fill="#1b2327" d="M468.604 92.937L256 251.074 43.396 92.937l-23.874 32.095L256 300.926l236.478-175.894z"/>
+            <image src="./icons/contact.png" xlink:href="" />
+          </svg>
+        </a>
+      </div>
+
+
+      <!--
+      Contact Form
+      -->
+      <div
+        id="contact-form"
+        class="js--collapsible js--collapsed"
+      >
+        <form
+          class="form u-flows js--validate-me"
+          name="contact"
+          id="contact"
+          method="POST"
+          data-netlify="true"
+          data-success="thank you"
+        >
+          <div class="form__input-group--integrated">
+            <label for="email">email address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              class="js--required"
+            >
+          </div>
+
+          <div class="form__input-group--integrated">
+            <label for="message">message</label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              class="js--required use-colour--foreground"
+            ></textarea>
+          </div>
+
+          <div class="form__input-group--submit">
+            <button type="submit">
+              send
+            </button>
+          </div>
+
+          <div class="js--notifications"></div>
+        </form>
+      </div>
+
+
+      <!--
+      Instagram link
+      -->
+      <div class="icon-link">
+        <a
+          href="https://www.instagram.com/graag.studio/"
+        >
+          <div class="icon-link__padder"></div>
+          <span class="visuallyhidden">Instagram</span>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="64"
+            height="64"
+            viewBox="0 0 512 512"
+            role="img"
+            aria-hidden="true"
+          >
+            <path fill="#1b2327" d="M261 512h-5c-40 0-77-1-113-3-33-2-64-14-88-33-23-19-39-45-47-76-7-28-7-55-7-81a5610 5610 0 010-126c0-26 0-53 7-81 8-31 24-57 47-76 24-19 55-31 88-33a1784 1784 0 01226 0c33 2 64 14 88 33 23 19 39 45 47 76 7 28 7 55 7 81l1 63-1 63c0 26 0 53-7 81-8 31-24 57-47 76-24 19-55 31-88 33-34 2-70 3-108 3zm-5-40c39 0 76-1 111-3a101 101 0 0098-79c6-23 6-47 6-71a5634 5634 0 000-126c0-24 0-48-6-71s-17-41-34-55-39-22-64-24a1748 1748 0 00-222 0 101 101 0 00-98 79c-6 23-6 47-6 71a5642 5642 0 000 126c0 24 0 48 6 71s17 41 34 55 39 22 64 24c35 2 72 3 111 3zm-1-91a125 125 0 110-250 125 125 0 010 250zm0-210a85 85 0 100 170 85 85 0 000-170zm139-80a30 30 0 100 60 30 30 0 000-60zm0 0"/>
+            <image src="./icons/instagram.png" xlink:href="" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    /* colour changing */
+    const getRandomInt = (max) => {
+      return (Math.floor(Math.random() * Math.floor(max))) + 1;
+    };
+
+    document.body.addEventListener(
+      'click',
+      (e) => {
+        // clicks on the body or containers not on elements
+        // this is a silly way to do it
+        const nodeName = e.target.nodeName.toLowerCase();
+        // console.log(nodeName);
+        if (nodeName === 'body' || nodeName === 'div' || nodeName === 'main' || nodeName === 'header' || nodeName === 'h1') {
+          // only prevent the default for left clicks.
+          if (!(e.which > 1 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey)) {
+            e.preventDefault();
+          }
+
+          document.body.className = `f${getRandomInt(101)}`
+        }
+      },
+      false,
+    );
+
+    /* toggle visibility */
+    const toggles = document.querySelectorAll('.js--collapse-anchor');
+
+    (toggles || []).forEach(
+      (t) => {
+        t.addEventListener(
+          'click',
+          (e) => {
+            if (!(e.which > 1 || e.shiftKey || e.altKey || e.metaKey || e.ctrlKey)) {
+              e.preventDefault();
+            }
+
+            const tar = e.currentTarget.getAttribute('data-target');
+            const tarNode = document.getElementById(tar);
+
+            console.log(tar);
+            console.log(tarNode);
+
+            if (tarNode) {
+              tarNode.classList.toggle('js--collapsed');
+            }
+          },
+          false,
+        );
+      }
+    );
+
+    /* focus inside should open - we don't bother closing */
+    const collapsible = document.querySelectorAll('.js--collapsible');
+    (collapsible || []).forEach(
+      (c) => {
+        c.addEventListener(
+          'focusin',
+          (e) => {
+            c.classList.remove('js--collapsed');
+          },
+          false,
+        );
+      }
+    );
+
+    /* submit form */
+    const validate = (form) => {
+      const invalid = Array.from((form.querySelectorAll('.js--required') || [])).find(
+        // look for elements that are required but have no value
+        (el) => !el.value.trim(),
+      );
+
+      if (!invalid) {
+        form.classList.add('js--validate-me--valid');
+        form.classList.remove('js--validate-me--invalid');
+      } else {
+        form.classList.add('js--validate-me--invalid');
+        form.classList.remove('js--validate-me--valid');
+      }
+    };
+
+    const validateMyParent = (e) => {
+      const parent = e.target.closest('.js--validate-me');
+      if (parent) {
+        validate(parent);
+      }
+    };
+
+    const addNotificationToForm = (form, message) => {
+      // remove any old content
+      const notificationsHolder = form.querySelector('.js--notifications');
+      while (notificationsHolder.firstChild) {
+        notificationsHolder.removeChild(notificationsHolder.lastChild);
+      }
+      // add new notifications
+      const p = document.createElement('p');
+      const newContent = document.createTextNode(message);
+      p.appendChild(newContent);
+      notificationsHolder.appendChild(p);
+    };
+
+    const submitFormIfValid = (e) => {
+      // console.log('submitting form');
+      e.preventDefault();
+
+      const submitButton = e.target.querySelector('button[type="submit"]');
+
+      if (submitButton) {
+        // bail is we're already submitting
+        if (submitButton.classList.contains('js--loading')) {
+          // console.log('bailing early to avoid double submission');
+          return;
+        }
+
+        // otherwise add loading class
+        submitButton.classList.add('js--loading');
+      }
+
+      const invalid = Array.from((e.target.querySelectorAll('.js--required') || [])).find(
+        // look for elements that are required but have no value
+        (el) => !el.value.trim(),
+      );
+
+      if (!invalid) {
+        // console.log('Submit the form then display a message...');
+        // netlify needs forms to submit as url-encoded string.
+        // FormData makes multipart submissions which is not what we want...
+        // https://docs.netlify.com/forms/setup/#submit-forms-via-ajax
+        // so `const formData = new FormData(e.target);` does not work
+
+        // browser support might need some checking for URLSearchParams
+        // we just hard submit if it's not present
+        if (!('URLSearchParams' in window)) {
+          e.target.submit();
+          return;
+        }
+        const formData = new URLSearchParams(new FormData(e.target)).toString();
+
+        fetch(
+          e.target.getAttribute('action'),
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData,
+          },
+        )
+          .then(
+            (response) => {
+              if (response.ok) {
+                e.target.reset();
+                addNotificationToForm(e.target, e.target.getAttribute('data-success'));
+                submitButton.classList.remove('js--loading');
+              } else {
+                addNotificationToForm(e.target, `There was a problem submitting this form: ${response.status} : ${response.statusText}`);
+                submitButton.classList.remove('js--loading');
+              }
+            },
+          )
+          .catch(
+            (error) => {
+              // console.log(error);
+              addNotificationToForm(e.target, error.message);
+              submitButton.classList.remove('js--loading');
+            },
+          );
+      }
+    };
+
+    const forms = document.querySelectorAll('.js--validate-me:not(.js--has-validation)');
+    // console.log(`adding ${(forms || []).length} new form listener/s`);
+    (forms || []).forEach(
+      (form) => {
+        // makes it safe to run this multiple times as we don't catch ones we've already observed
+        form.classList.add('js--has-validation');
+        form.addEventListener('submit', submitFormIfValid, false);
+        validate(form);
+        (form.querySelectorAll('.js--required') || []).forEach(
+          (required) => required.addEventListener('input', validateMyParent, false),
+        );
+      },
+    );
+
+  </script>
+</body>
+</html>

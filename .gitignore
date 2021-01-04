@@ -57,9 +57,3 @@ $RECYCLE.BIN/
 *.sass-cache
 node_modules
 .vscode
-
-
-# project specific
-# ----------------
-
-/dist
