@@ -10,25 +10,6 @@
 </head>
 <body>
   <section class="run-and-draw">
-    <div class="draw">
-      <div class="content">
-        <canvas width="0" height="0" id="c-source"></canvas>
-      </div>
-
-      <div class="controls">
-        <div class="control js--control--clear">❌</div>
-        <div class="control js--control--colour" data-colour="#14233a">⚫</div>
-      </div>
-      <div class="controls controls--above">
-        <label for="upload">
-          <input class="control js--control--upload" type="file" name="upload" id="upload">
-          <span class="control" title="upload image" >📩</span>
-        </label>
-        <div class="control js--control--download" title="download image" >💾</div>
-      </div>
-    </div>
-
-
     <div class="run"><div class="content">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1725.9 215.7">
         <defs>
@@ -115,6 +96,22 @@
       </svg>
       <canvas width="0" height="0" id="c-target"></canvas>
     </div></div> <!-- .run -->
+
+
+    <div class="draw">
+      <div class="content">
+        <canvas width="0" height="0" id="c-source"></canvas>
+      </div>
+
+      <div class="controls">
+        <div class="control js--control--clear">❌</div>
+        <div class="control js--control--colour" data-colour="#14233a">⚫</div>
+        <label for="upload">
+          <input class="control js--control--upload" type="file" name="upload" id="upload">
+          <span class="control" title="upload image" >💻</span>
+        </label>
+        <!-- <div class="control js--control--download" title="download image" >💾</div> -->
+      </div>
   </section>
 
   <script src="./main.js"></script>

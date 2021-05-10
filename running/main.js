@@ -50,19 +50,19 @@ const addPointsAround = (point, fresh) => {
     {
       x: point.x,
       y: point.y,
-      width: getRandomInt(0, 1),
+      width: getRandomInt(0, 3),
       colour: getCurrentColour(),
       fresh,
     },
     {
-      x: point.x + getRandomInt(0, 1),
-      y: point.y + getRandomInt(0, 1),
-      width: getRandomInt(0, 1),
+      x: point.x + getRandomInt(0, 2),
+      y: point.y + getRandomInt(0, 2),
+      width: getRandomInt(0, 2),
     },
     {
-      x: point.x - getRandomInt(0, 1),
-      y: point.y - getRandomInt(0, 2),
-      width: getRandomInt(0, 1),
+      x: point.x - getRandomInt(0, 2),
+      y: point.y - getRandomInt(0, 3),
+      width: getRandomInt(0, 2),
     },
   ]);
 };
@@ -135,7 +135,7 @@ const done = (canvas) => {
   const destCtx = destinationCanvas.getContext('2d');
 
   destCtx.clearRect(0, 0, destCtx.canvas.width, destCtx.canvas.height);
-  destCtx.drawImage(canvas, 0, 0);
+  destCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, destCtx.canvas.width, destCtx.canvas.height);
 }
 
 const clear = (canvas, ctx) => {
@@ -226,8 +226,9 @@ const sizeCanvas = () => {
 
   canvasOne.height = targetHeight;
   canvasOne.width = targetWidth;
-  canvasTwo.height = targetHeight;
-  canvasTwo.width = targetWidth;
+
+  canvasTwo.height = targetHeight * 0.3691;
+  canvasTwo.width = targetWidth * 0.3691;
 }
 
 /*
@@ -278,13 +279,19 @@ const init = () => {
 
   // }, false);
 
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'KeyS') {
+      downloadCanvasAsImage();
+    }
+  });
+
   // upload
   const uploadControl = document.querySelector('.js--control--upload');
   uploadControl.addEventListener('change', (e) => { uploadImage(e); }, false);
 
   // download
-  const downloadControl = document.querySelector('.js--control--download');
-  downloadControl.addEventListener('click', () => { downloadCanvasAsImage(); }, false);
+  // const downloadControl = document.querySelector('.js--control--download');
+  // downloadControl.addEventListener('click', () => { downloadCanvasAsImage(); }, false);
 }
 
 sizeCanvas();

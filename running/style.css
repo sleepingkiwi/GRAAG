@@ -5,13 +5,16 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
+  background-color: #e6f1ff;
 }
 
 body {
-  padding: 48px;
-  height: 100%;
+  padding: 64px 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   margin: 0;
 }
 
@@ -21,6 +24,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
   background-color: #e6f1ff;
@@ -29,11 +33,15 @@ body {
 
 .run,
 .draw {
-  min-width: 300px;
-  max-width: 600px;
+  min-width: 250px;
+  max-width: 500px;
   flex: 1;
-  margin: 24px;
+  margin: 48px;
   position: relative;
+}
+
+.draw {
+  margin: 64px 48px;
 }
 
 .content {
@@ -45,9 +53,9 @@ body {
 }
 
 .draw .content {
-  width: 36.91%;
-  padding-bottom: 36.91%;
-  border: 1px solid #c2cbd6;
+  /* width: 36.91%;
+  padding-bottom: 36.91%; */
+  border: 2px solid #d4e4f8;
 }
 
 .draw .content::after {
@@ -59,14 +67,27 @@ body {
   height: 50%;
   background-color: #acc6e8;
   border-radius: 100%;
-  opacity: 0.3;
+}
+
+.draw .content::before {
+  content: 'DRAW ME';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 100%;
+  font-size: 3rem;
+  color: #d4e4f8;
 }
 
 .draw .controls {
   position: absolute;
   top: 100%;
-  left: 33%;
-  width: 34%;
+  left: 5%;
+  width: 90%;
+  /* left: 33%;
+  width: 34%; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -93,18 +114,16 @@ body {
 
 .control {
   cursor: pointer;
+  margin: 12px;
+  font-size: 1em;
+  line-height: 1;
   padding: 12px;
-  background-color:  #c2cbd6;
-  border-radius: 0 0 6px 6px;
-  margin: 0 12px;
-  font-size: 1.2em;
+  background-color: #d4e4f8;
+  border-radius: 48px;
 }
 
 .controls--above .control {
   font-size: 0.8em;
-  border-radius: 6px 6px 0 0;
-  padding: 6px;
-  margin: 0 6px;
 }
 
 .content svg {
