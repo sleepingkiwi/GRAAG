@@ -1,5 +1,5 @@
-# GRAAG website
+# GRAAG
 
-A small website for GRAAG
+Some small things for GRAAG
 
 🚀

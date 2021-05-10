@@ -1,0 +1,205 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 48px;
+  height: 100%;
+  margin: 0;
+}
+
+.run-and-draw  {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e6f1ff;
+  border-radius: 12px;
+}
+
+.run,
+.draw {
+  min-width: 300px;
+  max-width: 600px;
+  flex: 1;
+  margin: 24px;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.draw .content {
+  width: 36.91%;
+  padding-bottom: 36.91%;
+  border: 1px solid #c2cbd6;
+}
+
+.draw .content::after {
+  content: ' ';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: #acc6e8;
+  border-radius: 100%;
+  opacity: 0.3;
+}
+
+.draw .controls {
+  position: absolute;
+  top: 100%;
+  left: 33%;
+  width: 34%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.draw .controls--above {
+  bottom: 100%;
+  top: auto;
+  justify-content: flex-end;
+}
+
+.controls input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.control {
+  cursor: pointer;
+  padding: 12px;
+  background-color:  #c2cbd6;
+  border-radius: 0 0 6px 6px;
+  margin: 0 12px;
+  font-size: 1.2em;
+}
+
+.controls--above .control {
+  font-size: 0.8em;
+  border-radius: 6px 6px 0 0;
+  padding: 6px;
+  margin: 0 6px;
+}
+
+.content svg {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: walkanim 1s infinite steps(1);
+}
+
+canvas {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  /* background-color: rgba(120, 120, 200, 0.1); */
+}
+
+.run canvas {
+  top: 8%;
+  left: 53%;
+
+  animation: canvasanim 1s infinite steps(1);
+}
+
+
+/** animations
+ *  ------------------------------------------------------------------------------------------------
+**/
+@keyframes walkanim {
+  0% {
+    transform: translateX(0);
+  }
+  12.5% {
+    transform: translateX(-12.5%);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  37.5% {
+    transform: translateX(-37.5%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  62.5% {
+    transform: translateX(-62.5%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  87.5% {
+    transform: translateX(-87.5%);
+  }
+}
+
+@keyframes canvasanim {
+  0% {
+    top: 8%;
+    left: 52%;
+    transform: rotate(0deg);
+  }
+  12.5% {
+    top: 13.1%;
+    left: 58.3%;
+    transform: rotate(6deg);
+  }
+  25% {
+    top: 8.2%;
+    left: 57.4%;
+    transform: rotate(12deg);
+  }
+  37.5% {
+    top: 14%;
+    left: 54.8%;
+    transform: rotate(18deg);
+  }
+  50% {
+    top: 9.4%;
+    left: 55%;
+    transform: rotate(12deg);
+  }
+  62.5% {
+    top: 13%;
+    left: 49%;
+    transform: rotate(6deg);
+  }
+  75% {
+    top: 8.8%;
+    left: 58.4%;
+    transform: rotate(4deg);
+  }
+  87.5% {
+    top: 13.8%;
+    left: 57.8%;
+    transform: rotate(0deg);
+  }
+}
