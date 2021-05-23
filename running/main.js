@@ -160,11 +160,11 @@ const colourCycle = () => {
     switch  (colourAttr) {
       case '#14233a':
         colourSelector.setAttribute('data-colour', '#ea9494');
-        colourSelector.innerHTML = '🔴';
+        colourSelector.style.color= '#ea9494';
         break;
       case '#ea9494':
         colourSelector.setAttribute('data-colour', '#acc6e8');
-        colourSelector.innerHTML = '🔵';
+        colourSelector.style.color= '#acc6e8';
         break;
       // case '#acc6e8':
       //   colourSelector.setAttribute('data-colour', 'rainbow');
@@ -172,7 +172,7 @@ const colourCycle = () => {
       //   break;
       default:
         colourSelector.setAttribute('data-colour', '#14233a');
-        colourSelector.innerHTML = '⚫';
+        colourSelector.style.color= '#14233a';
         break;
     }
   }
@@ -217,7 +217,7 @@ const sizeCanvas = () => {
   const canvasOne = document.getElementById('c-source');
   const canvasTwo = document.getElementById('c-target');
 
-  const draw = document.querySelector('.draw .content');
+  const draw = document.querySelector('.graag__draw .graag__content');
   console.log(draw);
 
   const targetWidth = draw.offsetWidth;
@@ -294,5 +294,12 @@ const init = () => {
   // downloadControl.addEventListener('click', () => { downloadCanvasAsImage(); }, false);
 }
 
-sizeCanvas();
-init();
+// because Cargo wants this in the head...
+window.addEventListener('load', () => {
+  const running = document.querySelector('.graag__run-and-draw');
+  if (running) {
+    sizeCanvas();
+    init();
+    document.querySelector('.graag__draw').classList.add('js--loaded-draw');
+  }
+});

@@ -11,14 +11,13 @@ html {
 }
 
 body {
-  padding: 64px 24px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   margin: 0;
 }
 
-.run-and-draw  {
+.graag__run-and-draw  {
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -27,12 +26,13 @@ body {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
-  background-color: #e6f1ff;
+  /* background-color: #e6f1ff; */
   border-radius: 12px;
+  padding: 0 clamp(24px, 150px, 18vw);
 }
 
-.run,
-.draw {
+.graag__run,
+.graag__draw {
   min-width: 250px;
   max-width: 500px;
   flex: 1;
@@ -40,11 +40,17 @@ body {
   position: relative;
 }
 
-.draw {
+.graag__draw {
   margin: 64px 48px;
+  opacity: 0;
+  transition: opacity 600ms ease;
 }
 
-.content {
+.js--loaded-draw {
+  opacity: 1;
+}
+
+.graag__content {
   padding-bottom: 100%;
   position: relative;
   overflow: hidden;
@@ -52,13 +58,13 @@ body {
   margin: 0 auto;
 }
 
-.draw .content {
+.graag__draw .graag__content {
   /* width: 36.91%;
   padding-bottom: 36.91%; */
   border: 2px solid #d4e4f8;
 }
 
-.draw .content::after {
+.graag__draw .graag__content::after {
   content: ' ';
   position: absolute;
   top: 25%;
@@ -69,23 +75,24 @@ body {
   border-radius: 100%;
 }
 
-.draw .content::before {
+.graag__draw .graag__content::before {
   content: 'DRAW ME';
   position: absolute;
-  top: 6px;
+  top: 12px;
   left: 6px;
   font-family: sans-serif;
   font-weight: bold;
   width: 100%;
   font-size: 3rem;
   color: #d4e4f8;
+  text-align: left;
 }
 
-.draw .controls {
+.graag__draw .graag__controls {
   position: absolute;
   top: 100%;
-  left: 5%;
-  width: 90%;
+  left: 0%;
+  width: 100%;
   /* left: 33%;
   width: 34%; */
   display: flex;
@@ -93,13 +100,13 @@ body {
   justify-content: flex-start;
 }
 
-.draw .controls--above {
+.graag__draw .graag__controls--above {
   bottom: 100%;
   top: auto;
   justify-content: flex-end;
 }
 
-.controls input {
+.graag__controls input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -112,21 +119,44 @@ body {
   overflow: hidden;
 }
 
-.control {
-  cursor: pointer;
-  margin: 12px;
-  font-size: 1em;
-  line-height: 1;
-  padding: 12px;
-  background-color: #d4e4f8;
-  border-radius: 48px;
+.js--control--colour {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5f70a8;
+  background-color: currentColor;
 }
 
-.controls--above .control {
+.graag__control {
+  cursor: pointer;
+  margin: 6px;
+  font-size: 1em;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 48px;
+  display: block;
+}
+
+.graag__control svg {
+  height: 24px;
+  width: 24px;
+  display: block;
+}
+
+.js--control--clear {
+  margin-right: 4px;
+}
+
+.js--control--clear svg {
+  height: 28px;
+  width: 28px;
+}
+
+
+.graag__controls--above .graag__control {
   font-size: 0.8em;
 }
 
-.content svg {
+.graag__content svg {
   position: absolute;
   height: 100%;
   top: 0;
@@ -142,7 +172,7 @@ canvas {
   /* background-color: rgba(120, 120, 200, 0.1); */
 }
 
-.run canvas {
+.graag__run canvas {
   top: 8%;
   left: 53%;
 
